@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToReadList, addToWishList } from '../../utility/AddToDB';
 
 const BookDetails = () => {
     const params = useParams();
@@ -10,7 +11,17 @@ const BookDetails = () => {
 
     const bookDetail = loaderData.find(data => data.bookId === id);
 
-    const { image, bookName, author, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = bookDetail;
+    const { bookId: bookID, image, bookName, author, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = bookDetail;
+
+    const handleAddToReadBook = (id) => {
+        console.log('Add to read book', id);
+        addToReadList(id);
+    } 
+
+    const handleAddToWishList = (id) => {
+        console.log('Add to wish list', id);
+        addToWishList(id);
+    } 
 
     return (
         <div className='w-11/12 mx-auto mt-12 flex flex-col md:flex-row gap-12'>
@@ -47,8 +58,8 @@ const BookDetails = () => {
                     <span className='font-bold'>{rating}</span>
                 </div>
                 <div className='space-x-4 pt-4'>
-                    <button className="btn btn-outline border-[#1313134D] font-semibold">Read</button>
-                    <button className="btn bg-[#50B1C9] text-white border-none font-semibold">Wishlist</button>
+                    <button onClick={() => handleAddToReadBook(bookID)} className="btn btn-outline border-[#1313134D] font-semibold">Read</button>
+                    <button onClick={() => handleAddToWishList(bookID)} className="btn bg-[#50B1C9] text-white border-none font-semibold">Wishlist</button>
                 </div>
             </div>
         </div>
