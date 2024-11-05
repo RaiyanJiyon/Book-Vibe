@@ -5,7 +5,7 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch("booksData.json")
+        fetch("/booksData.json")
             .then(response => response.json())
             .then(jsonData => setBooks(jsonData))
     }, [])
