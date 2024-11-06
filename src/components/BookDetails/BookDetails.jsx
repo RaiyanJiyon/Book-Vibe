@@ -15,7 +15,7 @@ const BookDetails = () => {
 
     const handleAddToReadBook = (id) => {
         console.log('Add to read book', id);
-        addToReadList(id);
+        addToReadList(id); 
     } 
 
     const handleAddToWishList = (id) => {
