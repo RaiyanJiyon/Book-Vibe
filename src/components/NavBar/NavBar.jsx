@@ -4,36 +4,45 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
     const link = (
         <>
-            <NavLink
-                to={"/"}
-                className={({ isActive }) =>
-                    isActive
-                        ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
-                        : "border-none"
-                }
-            >
-                Home
-            </NavLink>
-            <NavLink
-                to={"/ListedBooks"}
-                className={({ isActive }) =>
-                    isActive
-                        ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
-                        : "border-none"
-                }
-            >
-                Listed Books
-            </NavLink>
-            <NavLink
-                to={"/PagesToRead"}
-                className={({ isActive }) =>
-                    isActive
-                        ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
-                        : "border-none"
-                }
-            >
-                Pages to Read
-            </NavLink>
+            <li>
+
+                <NavLink
+                    to={"/"}
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
+                            : "border-none"
+                    }
+                >
+                    Home
+                </NavLink>
+            </li>
+            <li>
+
+                <NavLink
+                    to={"/ListedBooks"}
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
+                            : "border-none"
+                    }
+                >
+                    Listed Books
+                </NavLink>
+            </li>
+            <li>
+
+                <NavLink
+                    to={"/PagesToRead"}
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border border-[#23BE0A] text-[#23BE0A] font-semibold p-2 rounded-lg"
+                            : "border-none"
+                    }
+                >
+                    Pages to Read
+                </NavLink>
+            </li>
         </>
     );
     return (
@@ -63,7 +72,7 @@ const NavBar = () => {
                         {link}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Book Vibe</a>
+                <a href="/" className="btn btn-ghost text-xl">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 items-center gap-4">{link}</ul>

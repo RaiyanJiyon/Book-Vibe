@@ -32,4 +32,4 @@ const addToWishList = (id) => {
     localStorage.setItem('wish-list', JSON.stringify(storedList));
 };
 
-export { addToReadList, addToWishList }
+export { addToReadList, addToWishList, getToReadList, getToWishList }
