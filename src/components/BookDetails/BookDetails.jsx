@@ -1,13 +1,13 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { addToReadList, addToWishList } from '../../utility/AddToDB';
+import { addToReadList, addToWishList } from '../../utility/addToDB';
 
 const BookDetails = () => {
     const params = useParams();
     const { bookId } = params;
     const id = parseInt(bookId);
 
-    const loaderData = useLoaderData();
+    const loaderData = useLoaderData(); 
 
     const bookDetail = loaderData.find(data => data.bookId === id);
 
