@@ -8,9 +8,9 @@ const Banner = () => {
             <div className="hero-content flex-col justify-center lg:flex-row-reverse md:px-28 md:py-20">
                 <img
                     src={bannerImage}
-                    className="w-80 rounded-lg shadow-2xl" />
-                <div>
-                    <h1 className="text-5xl text-center lg:text-left font-bold">Books to freshen up your bookshelf</h1>
+                    className="lg:w-80 rounded-lg shadow-2xl" />
+                <div className='w-full'>
+                    <h1 className="text-4xl md:text-5xl lg:text-left font-bold">Books to freshen up your bookshelf</h1>
                     <NavLink to={"/ListedBooks"} className="btn bg-[#23BE0A] text-white font-semibold mt-10">View The List</NavLink>
                 </div>
             </div>
