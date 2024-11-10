@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { getToReadList, getToWishList } from "../../utility/addToDB";
 import { Helmet } from "react-helmet-async";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const ListedBooks = () => {
   const [booksList, setBooksList] = useState([]);
@@ -34,6 +35,21 @@ const ListedBooks = () => {
       <Helmet>
         <title>Listed Book | Book Vibe</title>
       </Helmet>
+
+      <div className="bg-[#1313130D] rounded-2xl">
+        <h2 className="text-2xl font-bold text-center py-8">Books</h2>
+      </div>
+
+      {/* sort by button */}
+      <div className="dropdown mt-8 mb-14 flex justify-center">
+        <div tabIndex={0} role="button" className="btn bg-[#23BE0A] text-white font-semibold rounded-lg m-1">Sort By <RiArrowDropDownLine className="text-3xl" /></div>
+        <ul tabIndex={0} className="dropdown-content menu bg-[#1313130D] rounded-box z-[1] w-52 mt-14 shadow">
+          <Link>Rating</Link>
+          <Link>Number of pages</Link>
+          <Link>Publisher year</Link>
+        </ul>
+      </div>
+
       <Tabs>
         <TabList>
           <Tab>Read Books</Tab>
