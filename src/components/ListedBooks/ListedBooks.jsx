@@ -11,12 +11,10 @@ const ListedBooks = () => {
   const [wishList, setWishList] = useState([]);
 
   const allBooks = useLoaderData();
-  // console.log(allBooks)
 
   useEffect(() => {
     const storedListBook = getToReadList();
     const storedWishList = getToWishList();
-    // console.log(storedListBook);
 
     const filteredBooksList = allBooks.filter((books) =>
       storedListBook.includes(books.bookId)
@@ -29,6 +27,24 @@ const ListedBooks = () => {
     setBooksList(filteredBooksList);
     setWishList(filteredWishList);
   }, [allBooks]);
+
+  const handleSortByRating = () => {
+    const sortedBook = [...allBooks].sort((a, b) => b.rating - a.rating);
+    setBooksList(sortedBook);
+    setWishList(sortedBook);
+  }
+
+  const handleSortByPageNumber = () => {
+    const sortedBook = [...allBooks].sort((a, b) => b.totalPages - a.totalPages);
+    setBooksList(sortedBook);
+    setWishList(sortedBook);
+  }
+
+  const handleSortByPublishYear = () => {
+    const sortedBook = [...allBooks].sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+    setBooksList(sortedBook);
+    setWishList(sortedBook);
+  }
 
   return (
     <div className="w-11/12 mx-auto mt-10">
@@ -44,9 +60,9 @@ const ListedBooks = () => {
       <div className="dropdown mt-8 mb-14 flex justify-center">
         <div tabIndex={0} role="button" className="btn bg-[#23BE0A] text-white font-semibold rounded-lg m-1">Sort By <RiArrowDropDownLine className="text-3xl" /></div>
         <ul tabIndex={0} className="dropdown-content menu bg-[#1313130D] rounded-box z-[1] w-52 mt-14 shadow">
-          <Link>Rating</Link>
-          <Link>Number of pages</Link>
-          <Link>Publisher year</Link>
+          <button onClick={handleSortByRating}>Rating</button>
+          <button onClick={handleSortByPageNumber}>Number of pages</button>
+          <button onClick={handleSortByPublishYear}>Publisher year</button>
         </ul>
       </div>
 
