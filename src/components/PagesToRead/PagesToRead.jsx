@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { getToReadList } from '../../utility/addToDB';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -18,7 +19,18 @@ const TriangleBar = (props) => {
 };
 
 const PagesToRead = () => {
+    const [bookList, setBooksList] = useState([]);
+
     const allBooks = useLoaderData();
+
+
+    useEffect(() => {
+        const allReadBooks = getToReadList();
+        const filteredBooksList = allBooks.filter((books) =>
+            allReadBooks.includes(books.bookId)
+        );
+        setBooksList(filteredBooksList);
+    }, [allBooks]);
 
     return (
         <div className='w-11/12 mx-auto mt-8 py-10 flex justify-center bg-[#13131308] rounded-3xl'>
@@ -28,7 +40,7 @@ const PagesToRead = () => {
             <BarChart
                 width={700}
                 height={400}
-                data={allBooks}
+                data={bookList}
                 margin={{
                     top: 20,
                     right: 30,
