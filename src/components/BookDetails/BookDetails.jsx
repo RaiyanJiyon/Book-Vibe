@@ -32,7 +32,7 @@ const BookDetails = () => {
                 <img
                     src={image}
                     alt={`Cover of the book: ${image}`}
-                    className="w-[80%] p-4" />
+                    className="w-1/2 md:w-[80%] p-4" />
             </figure>
             <div className='md:w-1/2 space-y-4'>
                 <h1 className='text-4xl font-bold'>{bookName}</h1>

@@ -12,7 +12,7 @@ const addToReadList = (id) => {
     if (storedList.includes(id)) {
         toast.error('Already in Read Books', {
             position: "top-center",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -26,7 +26,7 @@ const addToReadList = (id) => {
     storedList.push(id);
     toast.success('Added in Read Books', {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -50,7 +50,7 @@ const addToWishList = (id) => {
     if (storedReadList.includes(id)) {
         toast.warn('This book is already in your Read Books list, so it cannot be added to the Wishlist.', {
             position: "top-center",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -64,7 +64,7 @@ const addToWishList = (id) => {
     if (storedWishList.includes(id)) {
         toast.error('Already in Wishlist Books', {
             position: "top-center",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -78,7 +78,7 @@ const addToWishList = (id) => {
     storedWishList.push(id);
     toast.success('Added in Wishlist Books', {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
