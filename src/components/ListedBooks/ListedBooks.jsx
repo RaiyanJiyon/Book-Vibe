@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { getToReadList, getToWishList } from "../../utility/addToDB";
+import { Helmet } from "react-helmet-async";
 
 const ListedBooks = () => {
   const [booksList, setBooksList] = useState([]);
@@ -30,6 +31,9 @@ const ListedBooks = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-10">
+      <Helmet>
+        <title>Listed Book | Book Vibe</title>
+      </Helmet>
       <Tabs>
         <TabList>
           <Tab>Read Books</Tab>
