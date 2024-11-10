@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToReadList, addToWishList } from '../../utility/addToDB';
 
 const BookDetails = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     const params = useParams();
     const { bookId } = params;
     const id = parseInt(bookId);
